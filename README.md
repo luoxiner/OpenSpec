@@ -113,6 +113,14 @@ These tools have built-in OpenSpec commands. Select the OpenSpec integration whe
 
 Kilo Code discovers team workflows automatically. Save the generated files under `.kilocode/workflows/` and trigger them from the command palette with `/openspec-proposal.md`, `/openspec-apply.md`, or `/openspec-archive.md`.
 
+#### MCP (Model Context Protocol) Compatible
+Tools that support the Model Context Protocol can use the OpenSpec MCP server for native tool integration. See [MCP_SERVER.md](MCP_SERVER.md) for configuration details.
+
+| Tools | Configuration |
+|-------|--------------|
+| **Claude Desktop** | Add server to `claude_desktop_config.json` |
+| **Other MCP Clients** | See [MCP configuration examples](mcp-config-examples.json) |
+
 #### AGENTS.md Compatible
 These tools automatically read workflow instructions from `openspec/AGENTS.md`. Ask them to follow the OpenSpec workflow if they need a reminder. Learn more about the [AGENTS.md convention](https://agents.md/).
 

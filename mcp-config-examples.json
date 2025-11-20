@@ -1,0 +1,95 @@
+{
+  "description": "OpenSpec MCP Server Configuration Examples",
+  "examples": {
+    "claude_desktop_global": {
+      "description": "Claude Desktop configuration using globally installed OpenSpec",
+      "location": {
+        "macOS": "~/Library/Application Support/Claude/claude_desktop_config.json",
+        "windows": "%APPDATA%\\Claude\\claude_desktop_config.json"
+      },
+      "config": {
+        "mcpServers": {
+          "openspec": {
+            "command": "openspec-mcp-server",
+            "args": []
+          }
+        }
+      }
+    },
+    "claude_desktop_local": {
+      "description": "Claude Desktop configuration using local OpenSpec installation",
+      "location": {
+        "macOS": "~/Library/Application Support/Claude/claude_desktop_config.json",
+        "windows": "%APPDATA%\\Claude\\claude_desktop_config.json"
+      },
+      "config": {
+        "mcpServers": {
+          "openspec": {
+            "command": "node",
+            "args": ["/absolute/path/to/OpenSpec/bin/openspec-mcp-server.js"]
+          }
+        }
+      }
+    },
+    "claude_desktop_with_npx": {
+      "description": "Claude Desktop configuration using npx",
+      "config": {
+        "mcpServers": {
+          "openspec": {
+            "command": "npx",
+            "args": ["-y", "@fission-ai/openspec-mcp-server"]
+          }
+        }
+      }
+    },
+    "cursor_config": {
+      "description": "Cursor IDE configuration (if MCP support is added)",
+      "config": {
+        "mcp": {
+          "servers": {
+            "openspec": {
+              "command": "openspec-mcp-server"
+            }
+          }
+        }
+      }
+    },
+    "vscode_continue": {
+      "description": "VS Code Continue extension configuration (hypothetical)",
+      "location": "~/.continue/config.json",
+      "config": {
+        "experimental": {
+          "modelContextProtocol": {
+            "servers": [
+              {
+                "name": "openspec",
+                "command": "openspec-mcp-server"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "generic_mcp_client": {
+      "description": "Generic MCP client configuration format",
+      "config": {
+        "mcp_servers": [
+          {
+            "name": "openspec",
+            "transport": "stdio",
+            "command": "openspec-mcp-server",
+            "args": [],
+            "env": {}
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Replace '/absolute/path/to/OpenSpec' with your actual installation path",
+    "Ensure Node.js >= 20.19.0 is installed and accessible in PATH",
+    "Restart your MCP client after updating the configuration",
+    "Check client logs for connection and error details",
+    "The server communicates over stdio and expects JSON-RPC 2.0 messages"
+  ]
+}
